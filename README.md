@@ -14,6 +14,16 @@
 
 ---
 
+## 界面预览
+
+| 登录 / Cookie | 搜索抢课 |
+|---|---|
+| ![登录界面](docs/images/login.png) | ![搜索抢课](docs/images/search.png) |
+
+> 截图取自 v0.1.9 实际运行界面（课程数据为空，不含任何个人信息）。
+
+---
+
 ## 它能做什么
 
 | 模块 | 能力 |
@@ -73,6 +83,7 @@ python zjgsu_launcher.py
 
 > 详细按钮说明、每种筛选条件的语义、日志怎么看，见 [`docs/USAGE.md`](docs/USAGE.md)。
 > 环境准备、便携部署、打包成 exe、部署报错排查，见 [`docs/DEPLOY.md`](docs/DEPLOY.md)。
+> 想改代码 / 提 PR，先看 [`CONTRIBUTING.md`](CONTRIBUTING.md)（含代码约定与提交口径注意事项）。
 > 每次重启软件都要重新点一次「抓取 Cookie」（教务 Cookie 不落盘）。
 
 ## 项目结构
@@ -89,11 +100,14 @@ zjgsu-course-helper/
 ├── requirements.txt
 ├── LICENSE                      # AGPL-3.0
 ├── THIRD-PARTY.md               # 第三方开源组件与协议标注
+├── CONTRIBUTING.md              # 贡献指南（报告 bug 前先看这个）
+├── .github/ISSUE_TEMPLATE/      # Issue 模板（Bug 报告 / 功能建议）
 └── docs/
     ├── DEPLOY.md                # 部署与环境说明（环境要求 / 三种部署方式 / 排查表）
     ├── USAGE.md                 # 使用手册（每个按钮、每种筛选条件的语义）
     ├── TECH.md                  # 技术架构与接口说明
-    └── CHANGELOG.md             # 版本更新记录
+    ├── CHANGELOG.md             # 版本更新记录
+    └── images/                  # 界面截图（README 引用）
 ```
 
 ## 工作原理（简述）
@@ -121,4 +135,12 @@ zjgsu-course-helper/
 Copyright (C) 2026 北面艺术家 (North Artist / @northartist)
 ```
 
-如果这个工具帮到了你，欢迎在 Issues 里反馈 bug 或提 PR。
+## 联系作者
+
+| | |
+|---|---|
+| 邮箱 | **nnorthartist@gmail.com** |
+| GitHub | [@northartist](https://github.com/northartist) |
+| 问题反馈 | 优先用 [Issues](https://github.com/northartist/zjgsu-course-helper/issues)（贴日志前请先脱敏，见 [`CONTRIBUTING.md`](CONTRIBUTING.md)） |
+
+如果这个工具帮到了你，欢迎在 Issues 里反馈 bug 或提 PR（贡献指南见 [`CONTRIBUTING.md`](CONTRIBUTING.md)）。
