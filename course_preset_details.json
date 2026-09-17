@@ -1,0 +1,1776 @@
+{
+ "(2026-2027-1)-FLG004-38": [
+  {
+   "course_name": "大学英语(4)",
+   "code": "FLG004",
+   "credit": "3.0",
+   "time": "星期三第10-12节{1-16周}",
+   "room": "经济111",
+   "teacher": "周迈/副教授",
+   "category": "英语分项"
+  }
+ ],
+ "(2026-2027-1)-FLG004-42": [
+  {
+   "course_name": "大学英语(4)",
+   "code": "FLG004",
+   "credit": "3.0",
+   "time": "星期三第10-12节{1-16周}",
+   "room": "经济107",
+   "teacher": "2022108/金太东/无",
+   "category": "英语分项",
+   "rongliang": "50",
+   "yixuan": "50",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-MPE031-04": [
+  {
+   "course_name": "初级游泳",
+   "code": "MPE031",
+   "credit": "1.0",
+   "time": "星期四第1-2节{1-16周}",
+   "room": "体育中心一楼游泳馆",
+   "teacher": "来忠/讲师",
+   "category": "体育分项"
+  }
+ ],
+ "(2026-2027-1)-MPE031-03": [
+  {
+   "course_name": "初级游泳",
+   "code": "MPE031",
+   "credit": "1.0",
+   "time": "星期三第1-2节{1-16周}",
+   "room": "体育中心一楼游泳馆",
+   "teacher": "来忠/讲师",
+   "category": "体育分项"
+  }
+ ],
+ "(2026-2027-1)-MPE022-07": [
+  {
+   "course_name": "初级羽毛球",
+   "code": "MPE022",
+   "credit": "1.0",
+   "time": "星期四第1-2节{1-16周}",
+   "room": "体育中心一楼羽毛球馆2号门",
+   "teacher": "沈李舜",
+   "category": "体育分项"
+  }
+ ],
+ "(2026-2027-1)-GENARC163-01": [
+  {
+   "course_name": "中国传统图案的编程解码",
+   "code": "GENARC163",
+   "credit": "1.0",
+   "time": "星期四第6-8节{1-5周}; 第6节{6周}",
+   "room": "艺术楼224",
+   "teacher": "谢仁爱",
+   "category": "通识选修课"
+  }
+ ],
+ "(2026-2027-1)-GENNET045-2": [
+  {
+   "course_name": "人工智能与机器学习",
+   "code": "GENNET045",
+   "credit": "2.0",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "现教301",
+   "teacher": "1120085/杨晓东/副教授",
+   "category": "通识选修课",
+   "teaching_class": "(2026-2027-1)-GENNET045-2",
+   "rongliang": "33",
+   "yixuan": "33",
+   "jxb_id": "520F45EC791783BDE063CA8AA8C0CB43",
+   "jxb_count": 1,
+   "campus": "下沙"
+  }
+ ],
+ "美国法律文化": [
+  {
+   "course_name": "美国法律文化",
+   "code": "GENEML072",
+   "teaching_class": "(2026-2027-1)-GENEML072-03",
+   "time": "星期四第6-6节{13周}；星期四第6-8节{8-12周}",
+   "room": "F213<br/>F213",
+   "teacher": "1100096/刘京莲/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_count": 4
+  }
+ ],
+ "(2026-2027-1)-GENEML072-03": [
+  {
+   "course_name": "美国法律文化",
+   "code": "GENEML072",
+   "teaching_class": "(2026-2027-1)-GENEML072-03",
+   "time": "星期四第6-6节{13周}；星期四第6-8节{8-12周}",
+   "room": "F213<br/>F213",
+   "teacher": "1100096/刘京莲/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_count": 4
+  }
+ ],
+ "数字人文": [
+  {
+   "course_name": "数字人文",
+   "code": "GENNET067",
+   "teaching_class": "(2026-2027-1)-GENNET067-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "现教317<br/>现教317",
+   "teacher": "1120046/诸葛斌/教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100"
+  }
+ ],
+ "(2026-2027-1)-GENNET067-01": [
+  {
+   "course_name": "数字人文",
+   "code": "GENNET067",
+   "teaching_class": "(2026-2027-1)-GENNET067-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "现教317",
+   "teacher": "1120046/诸葛斌/教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC774583BDE063CA8AA8C0CB43",
+   "jxb_count": 1,
+   "campus": "下沙"
+  }
+ ],
+ "大学生财商": [
+  {
+   "course_name": "大学生财商",
+   "code": "GENEML069",
+   "teaching_class": "(2026-2027-1)-GENEML069-1",
+   "time": "星期四第6-6节{13周}；星期四第6-8节{8-12周}",
+   "room": "B312<br/>B312",
+   "teacher": "1030056/张超(财会)/讲师",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_count": 2
+  }
+ ],
+ "(2026-2027-1)-GENEML069-1": [
+  {
+   "course_name": "大学生财商",
+   "code": "GENEML069",
+   "teaching_class": "(2026-2027-1)-GENEML069-1",
+   "time": "星期四第6-6节{13周}；星期四第6-8节{8-12周}",
+   "room": "B312<br/>B312",
+   "teacher": "1030056/张超(财会)/讲师",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_count": 2
+  }
+ ],
+ "加工食品与健康生活": [
+  {
+   "course_name": "加工食品与健康生活",
+   "code": "GENNET010",
+   "teaching_class": "(2026-2027-1)-GENNET010-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B304<br/>B304",
+   "teacher": "1110142/陈跃文/副教授",
+   "category": "通识选修课",
+   "rongliang": "33",
+   "yixuan": "33"
+  }
+ ],
+ "(2026-2027-1)-GENNET010-2": [
+  {
+   "course_name": "加工食品与健康生活",
+   "code": "GENNET010",
+   "teaching_class": "(2026-2027-1)-GENNET010-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B304",
+   "teacher": "1110142/陈跃文/副教授",
+   "category": "通识选修课",
+   "rongliang": "33",
+   "yixuan": "33",
+   "jxb_id": "520F45EC756783BDE063CA8AA8C0CB43",
+   "jxb_count": 1,
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML072-02": [
+  {
+   "course_name": "美国法律文化",
+   "code": "GENEML072",
+   "teaching_class": "(2026-2027-1)-GENEML072-02",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "F225",
+   "teacher": "1100096/刘京莲/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC775F83BDE063CA8AA8C0CB43",
+   "jxb_count": 1,
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML069-2": [
+  {
+   "course_name": "大学生财商",
+   "code": "GENEML069",
+   "teaching_class": "(2026-2027-1)-GENEML069-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B312",
+   "teacher": "1030056/张超(财会)/讲师",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "520F45EC7A2783BDE063CA8AA8C0CB43",
+   "jxb_count": 1,
+   "campus": "下沙"
+  }
+ ],
+ "教工路(2026-2027-1)-GENLHP076-04": [
+  {
+   "course_name": "丝绸之路与中外文化交流",
+   "code": "GENLHP076",
+   "teaching_class": "教工路(2026-2027-1)-GENLHP076-04",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "5号教学楼5220",
+   "teacher": "2022212/朱艳桐/无",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "25",
+   "jxb_id": "520F45EC757A83BDE063CA8AA8C0CB43"
+  }
+ ],
+ "(2026-2027-1)-GENLHP078-01": [
+  {
+   "course_name": "批判性思维",
+   "code": "GENLHP078",
+   "teaching_class": "(2026-2027-1)-GENLHP078-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "D311",
+   "teacher": "2019182/安谧/未评级;2019164/徐康/讲师",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC753783BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP086-01": [
+  {
+   "course_name": "创意写作：打通文学与史学",
+   "code": "GENLHP086",
+   "teaching_class": "(2026-2027-1)-GENLHP086-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "B221",
+   "teacher": "2022041/陈章/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "547FB0FE7F056608E063CA8AA8C04F9C",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP087-02": [
+  {
+   "course_name": "学习心理与个性差异",
+   "code": "GENLHP087",
+   "teaching_class": "(2026-2027-1)-GENLHP087-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-10周(双),11周,14-16周(双)}",
+   "room": "B113",
+   "teacher": "1070086/贾爱武/教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "5226D0CBD0ABF3C9E063CA8AA8C0917A",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE122-02": [
+  {
+   "course_name": "创新AI产品实践",
+   "code": "GENICE122",
+   "teaching_class": "(2026-2027-1)-GENICE122-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "管理109",
+   "teacher": "1010043/余琛/教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "520F45EC762F83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1,
+   "xf": "1.0"
+  }
+ ],
+ "(2026-2027-1)-GENNET074-01": [
+  {
+   "course_name": "葡萄酒文化及鉴赏",
+   "code": "GENNET074",
+   "teaching_class": "(2026-2027-1)-GENNET074-01",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "经济303",
+   "teacher": "1110150/刘玮琳/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC73F583BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE126-02": [
+  {
+   "course_name": "生成式AI应用与跨界实战",
+   "code": "GENICE126",
+   "teaching_class": "(2026-2027-1)-GENICE126-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "艺术楼220",
+   "teacher": "2020004/张庆/讲师",
+   "category": "通识选修课",
+   "rongliang": "23",
+   "yixuan": "23",
+   "jxb_id": "522357647F7CEFA9E063C98AA8C09797",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENWCE045-02": [
+  {
+   "course_name": "AI赋能大学写作",
+   "code": "GENWCE045",
+   "teaching_class": "(2026-2027-1)-GENWCE045-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "信息楼227",
+   "teacher": "1310021/陶婉琼/其他中级",
+   "category": "通识选修课",
+   "rongliang": "50",
+   "yixuan": "50",
+   "jxb_id": "52221ED3A0AB824AE063C98AA8C0CF01",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP092-01": [
+  {
+   "course_name": "艺术哲学十讲",
+   "code": "GENLHP092",
+   "teaching_class": "(2026-2027-1)-GENLHP092-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "5号教学楼5312",
+   "teacher": "1140074/徐晟/副教授",
+   "category": "通识选修课",
+   "rongliang": "50",
+   "yixuan": "49",
+   "jxb_id": "5223D2BECE0506CCE063C98AA8C08A06",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENLHP095-02": [
+  {
+   "course_name": "爱的教育",
+   "code": "GENLHP095",
+   "teaching_class": "(2026-2027-1)-GENLHP095-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "E110",
+   "teacher": "3110013/李建伟/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "5223D2BECD9D06CCE063C98AA8C08A06",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC162-01": [
+  {
+   "course_name": "生态经济与绿色设计",
+   "code": "GENARC162",
+   "teaching_class": "(2026-2027-1)-GENARC162-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "C216",
+   "teacher": "1090049/王淑华/副教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "51FA5872ACBC17A1E063CA8AA8C06971",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET078-02": [
+  {
+   "course_name": "线性代数应用案例分析",
+   "code": "GENNET078",
+   "teaching_class": "(2026-2027-1)-GENNET078-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "B313",
+   "teacher": "1020082/吴金明/教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "5223D2BECDCB06CCE063C98AA8C08A06",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET081-01": [
+  {
+   "course_name": "星空与天象",
+   "code": "GENNET081",
+   "teaching_class": "(2026-2027-1)-GENNET081-01",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "D229",
+   "teacher": "1120034/何忠蛟/副教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "5213B97C7473B053E063C98AA8C0092A",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET081-02": [
+  {
+   "course_name": "星空与天象",
+   "code": "GENNET081",
+   "teaching_class": "(2026-2027-1)-GENNET081-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "D229",
+   "teacher": "1120034/何忠蛟/副教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "52214FC17B521291E063CA8AA8C06848",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "智慧树网络课(2026-2027-1)-GENARC054-01": [
+  {
+   "course_name": "中国蚕丝绸文化",
+   "code": "GENARC054",
+   "teaching_class": "智慧树网络课(2026-2027-1)-GENARC054-01",
+   "time": "星期四第10-11节{3周,6-8周(双)}",
+   "room": "管理201",
+   "teacher": "1140055/马琼/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC769683BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "智慧树网络课",
+   "jxb_count": 1
+  }
+ ],
+ "艺术导论(2026-2027-1)-GENARC071-2": [
+  {
+   "course_name": "中外建筑与文化",
+   "code": "GENARC071",
+   "teaching_class": "艺术导论(2026-2027-1)-GENARC071-2",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "A320",
+   "teacher": "1010053/田敏/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC783883BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "艺术导论",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE096-2": [
+  {
+   "course_name": "企业综合运营全景演练",
+   "code": "GENICE096",
+   "teaching_class": "(2026-2027-1)-GENICE096-2",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "文科楼416",
+   "teacher": "2019046/胡玉可/副教授;2020041/王雪方/未评级",
+   "category": "通识选修课",
+   "rongliang": "80",
+   "yixuan": "80",
+   "jxb_id": "520F45EC736783BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML064-02": [
+  {
+   "course_name": "现代政府要义",
+   "code": "GENEML064",
+   "teaching_class": "(2026-2027-1)-GENEML064-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "C113",
+   "teacher": "1150094/徐珣/副教授",
+   "category": "通识选修课",
+   "rongliang": "33",
+   "yixuan": "33",
+   "jxb_id": "53278D99DBC37372E063CA8AA8C08705",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML072-04": [
+  {
+   "course_name": "美国法律文化",
+   "code": "GENEML072",
+   "teaching_class": "(2026-2027-1)-GENEML072-04",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "F213",
+   "teacher": "1100096/刘京莲/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC775583BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENWCE033-02": [
+  {
+   "course_name": "与古同游：行旅诗词欣赏与写作",
+   "code": "GENWCE033",
+   "teaching_class": "(2026-2027-1)-GENWCE033-02",
+   "time": "星期四第10-10节{7周}；星期四第10-12节{1-5周}",
+   "room": "经济215",
+   "teacher": "1140033/商月怀/副教授",
+   "category": "通识选修课",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "520F45EC774083BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENWCE034-01": [
+  {
+   "course_name": "国际商务礼仪",
+   "code": "GENWCE034",
+   "teaching_class": "(2026-2027-1)-GENWCE034-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "管理322",
+   "teacher": "1070202/傅恒/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC797283BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC131-01": [
+  {
+   "course_name": "中医推拿理论与实务",
+   "code": "GENARC131",
+   "teaching_class": "(2026-2027-1)-GENARC131-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "管理234",
+   "teacher": "1050070/郭竞成/副教授",
+   "category": "通识选修课",
+   "rongliang": "25",
+   "yixuan": "25",
+   "jxb_id": "520F45EC76BA83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "影视鉴赏(2026-2027-1)-GENARC005-01": [
+  {
+   "course_name": "简易动画制作",
+   "code": "GENARC005",
+   "teaching_class": "影视鉴赏(2026-2027-1)-GENARC005-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "艺术楼233",
+   "teacher": "1090010/黄伟/副教授",
+   "category": "通识选修课",
+   "rongliang": "25",
+   "yixuan": "25",
+   "jxb_id": "52D79FF6F7DCA21AE063C98AA8C08850",
+   "campus": "下沙",
+   "platform": "影视鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "舞蹈鉴赏(2026-2027-1)-GENARC009-4": [
+  {
+   "course_name": "舞蹈作品欣赏",
+   "code": "GENARC009",
+   "teaching_class": "舞蹈鉴赏(2026-2027-1)-GENARC009-4",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "B308",
+   "teacher": "3070012/屠锋锋/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC779583BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "舞蹈鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "影视鉴赏(2026-2027-1)-GENARC012-03": [
+  {
+   "course_name": "摄影艺术概论",
+   "code": "GENARC012",
+   "teaching_class": "影视鉴赏(2026-2027-1)-GENARC012-03",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "C217",
+   "teacher": "1140022/周志平/教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "53B91D1AA5080516E063CA8AA8C0ADEB",
+   "campus": "下沙",
+   "platform": "影视鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "影视鉴赏(2026-2027-1)-GENARC012-04": [
+  {
+   "course_name": "摄影艺术概论",
+   "code": "GENARC012",
+   "teaching_class": "影视鉴赏(2026-2027-1)-GENARC012-04",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "C217",
+   "teacher": "1140022/周志平/教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "53A068C4EC244CB1E063C98AA8C0507A",
+   "campus": "下沙",
+   "platform": "影视鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "美术鉴赏(2026-2027-1)-GENARC031-2": [
+  {
+   "course_name": "诗画中国-中国山水画史专题讲座",
+   "code": "GENARC031",
+   "teaching_class": "美术鉴赏(2026-2027-1)-GENARC031-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "E206",
+   "teacher": "1070068/赵海虹/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC78DC83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "美术鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "美术鉴赏(2026-2027-1)-GENARC031-1": [
+  {
+   "course_name": "诗画中国-中国山水画史专题讲座",
+   "code": "GENARC031",
+   "teaching_class": "美术鉴赏(2026-2027-1)-GENARC031-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "E306",
+   "teacher": "1070068/赵海虹/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC78DD83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "美术鉴赏",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC056-01": [
+  {
+   "course_name": "世界遗产概论",
+   "code": "GENARC056",
+   "teaching_class": "(2026-2027-1)-GENARC056-01",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "管理221",
+   "teacher": "1080011/郭万平/副教授",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "52DEF8DB143C419AE063C98AA8C0DE6C",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC060-2": [
+  {
+   "course_name": "中国传统文化中的智慧",
+   "code": "GENARC060",
+   "teaching_class": "(2026-2027-1)-GENARC060-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "经济124",
+   "teacher": "1030037/刘玉龙/副教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC77BA83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC060-1": [
+  {
+   "course_name": "中国传统文化中的智慧",
+   "code": "GENARC060",
+   "teaching_class": "(2026-2027-1)-GENARC060-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "经济124",
+   "teacher": "1030037/刘玉龙/副教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC77BF83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENARC084-02": [
+  {
+   "course_name": "中国文化漫谈",
+   "code": "GENARC084",
+   "teaching_class": "(2026-2027-1)-GENARC084-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "F208",
+   "teacher": "1100043/张振杰/讲师",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC730183BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML002-2": [
+  {
+   "course_name": "审计学概论",
+   "code": "GENEML002",
+   "teaching_class": "(2026-2027-1)-GENEML002-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B213",
+   "teacher": "1030049/张宜霞/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC791E83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML004-2": [
+  {
+   "course_name": "商务沟通与谈判",
+   "code": "GENEML004",
+   "teaching_class": "(2026-2027-1)-GENEML004-2",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "管理214",
+   "teacher": "1010012/冯炜/副教授",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC79A283BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML004-04": [
+  {
+   "course_name": "商务沟通与谈判",
+   "code": "GENEML004",
+   "teaching_class": "(2026-2027-1)-GENEML004-04",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "管理214",
+   "teacher": "1010012/冯炜/副教授",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC79A783BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML025-2": [
+  {
+   "course_name": "人力资源管理概论",
+   "code": "GENEML025",
+   "teaching_class": "(2026-2027-1)-GENEML025-2",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "B225<br/>B225",
+   "teacher": "1010056/缪仁炳/副教授",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC78EF83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML025-4": [
+  {
+   "course_name": "人力资源管理概论",
+   "code": "GENEML025",
+   "teaching_class": "(2026-2027-1)-GENEML025-4",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B225<br/>B225",
+   "teacher": "1010056/缪仁炳/副教授",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC78F483BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML043-3": [
+  {
+   "course_name": "法医与破案",
+   "code": "GENEML043",
+   "teaching_class": "(2026-2027-1)-GENEML043-3",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "F217",
+   "teacher": "1100064/张园园/讲师",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC72DB83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML047-2": [
+  {
+   "course_name": "评价学概论",
+   "code": "GENEML047",
+   "teaching_class": "(2026-2027-1)-GENEML047-2",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "管理125",
+   "teacher": "1310024/俞立平/教授;1020068/洪金珠/讲师",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC79C083BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML048-3": [
+  {
+   "course_name": " 上市公司内部控制",
+   "code": "GENEML048",
+   "teaching_class": "(2026-2027-1)-GENEML048-3",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "B212",
+   "teacher": "1030049/张宜霞/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC79FA83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE001-02": [
+  {
+   "course_name": "互联网思维",
+   "code": "GENICE001",
+   "teaching_class": "(2026-2027-1)-GENICE001-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "A414",
+   "teacher": "1130081/项益鸣/教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC796483BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE004-1": [
+  {
+   "course_name": "创业企业财务管理",
+   "code": "GENICE004",
+   "teaching_class": "(2026-2027-1)-GENICE004-1",
+   "time": "星期四第10-11节{5-6周}；星期四第10-12节{1-4周}",
+   "room": "管理301",
+   "teacher": "1030027/徐丽芬/讲师;1030044/颜淑姬/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC749E83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE004-2": [
+  {
+   "course_name": "创业企业财务管理",
+   "code": "GENICE004",
+   "teaching_class": "(2026-2027-1)-GENICE004-2",
+   "time": "星期四第10-11节{12-13周}；星期四第10-12节{8-11周}",
+   "room": "管理301",
+   "teacher": "1030027/徐丽芬/讲师;1030044/颜淑姬/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC74A383BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE007-3": [
+  {
+   "course_name": "企业经营实战",
+   "code": "GENICE007",
+   "teaching_class": "(2026-2027-1)-GENICE007-3",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "文科楼316",
+   "teacher": "2022158/金献坤/无",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC7A5D83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE008-2": [
+  {
+   "course_name": "数学建模与思维创新",
+   "code": "GENICE008",
+   "teaching_class": "(2026-2027-1)-GENICE008-2",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "B108",
+   "teacher": "1020072/李银飞/副教授",
+   "category": "通识选修课",
+   "rongliang": "106",
+   "yixuan": "106",
+   "jxb_id": "520F45EC758983BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE009-2": [
+  {
+   "course_name": "三维数字建模与产品创新",
+   "code": "GENICE009",
+   "teaching_class": "(2026-2027-1)-GENICE009-2",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "现教201",
+   "teacher": "1110061/吕述纲/讲师",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC737683BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE018-02": [
+  {
+   "course_name": "创新思维训练",
+   "code": "GENICE018",
+   "teaching_class": "(2026-2027-1)-GENICE018-02",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "管理113",
+   "teacher": "1010043/余琛/教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC73FB83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENICE022-02": [
+  {
+   "course_name": "文化创意与法律",
+   "code": "GENICE022",
+   "teaching_class": "(2026-2027-1)-GENICE022-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "5号教学楼5315",
+   "teacher": "1100040/高映/副教授",
+   "category": "通识选修课",
+   "rongliang": "43",
+   "yixuan": "43",
+   "jxb_id": "5226D0CBD057F3C9E063CA8AA8C0917A",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "教工路创新研讨 (2026-2027-1)-GENICE026-02": [
+  {
+   "course_name": "创新研讨课",
+   "code": "GENICE026",
+   "teaching_class": "教工路创新研讨 (2026-2027-1)-GENICE026-02",
+   "time": "星期四第10-12节{1周}",
+   "room": "5号教学楼5304",
+   "teacher": "1030051/柴斌锋/副教授",
+   "category": "通识选修课",
+   "rongliang": "16",
+   "yixuan": "16",
+   "jxb_id": "520F45EC77D383BDE063CA8AA8C0CB43",
+   "campus": "教工路",
+   "platform": "教工路创新研讨",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP011-04": [
+  {
+   "course_name": "逻辑学导论",
+   "code": "GENLHP011",
+   "teaching_class": "(2026-2027-1)-GENLHP011-04",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "F308",
+   "teacher": "1120078/葛光涛/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC755283BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP011-2": [
+  {
+   "course_name": "逻辑学导论",
+   "code": "GENLHP011",
+   "teaching_class": "(2026-2027-1)-GENLHP011-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "F308",
+   "teacher": "1120078/葛光涛/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC755383BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP031-1": [
+  {
+   "course_name": "东亚民间故事漫谈",
+   "code": "GENLHP031",
+   "teaching_class": "(2026-2027-1)-GENLHP031-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "管理304",
+   "teacher": "1080037/徐磊/副教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC78B583BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP031-2": [
+  {
+   "course_name": "东亚民间故事漫谈",
+   "code": "GENLHP031",
+   "teaching_class": "(2026-2027-1)-GENLHP031-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "管理304",
+   "teacher": "1080037/徐磊/副教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC78BA83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP042-01": [
+  {
+   "course_name": "莎士比亚戏剧",
+   "code": "GENLHP042",
+   "teaching_class": "(2026-2027-1)-GENLHP042-01",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "A323",
+   "teacher": "2018081/胡茂盛/讲师",
+   "category": "通识选修课",
+   "rongliang": "58",
+   "yixuan": "58",
+   "jxb_id": "5226D0CBCFF3F3C9E063CA8AA8C0917A",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENLHP049-1": [
+  {
+   "course_name": "礼仪文化",
+   "code": "GENLHP049",
+   "teaching_class": "(2026-2027-1)-GENLHP049-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "A108",
+   "teacher": "1040019/王歆玫/副教授",
+   "category": "通识选修课",
+   "rongliang": "30",
+   "yixuan": "31",
+   "jxb_id": "520F45EC766983BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "尔雅网络课(2026-2027-1)-GENNET007-1": [
+  {
+   "course_name": "魅力科学",
+   "code": "GENNET007",
+   "teaching_class": "尔雅网络课(2026-2027-1)-GENNET007-1",
+   "time": "星期四第10-12节{1周,5周,9周}",
+   "room": "D202",
+   "teacher": "2021071/吕诗文/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC781183BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "尔雅网络课",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET012-4": [
+  {
+   "course_name": "味觉改变生活",
+   "code": "GENNET012",
+   "teaching_class": "(2026-2027-1)-GENNET012-4",
+   "time": "星期四第10-11节{13周}；星期四第10-12节{8-12周}",
+   "room": "B325",
+   "teacher": "1110029/张卫斌/讲师",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC770A83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET012-2": [
+  {
+   "course_name": "味觉改变生活",
+   "code": "GENNET012",
+   "teaching_class": "(2026-2027-1)-GENNET012-2",
+   "time": "星期四第10-11节{6周}；星期四第10-12节{1-5周}",
+   "room": "B325",
+   "teacher": "1110029/张卫斌/讲师",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC770483BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET013-1": [
+  {
+   "course_name": "化学与生活",
+   "code": "GENNET013",
+   "teaching_class": "(2026-2027-1)-GENNET013-1",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "E223",
+   "teacher": "1110089/王奎武/其他正高级;1110095/韩晓祥/副教授;1110092/陈青/副教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC768983BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET021-1": [
+  {
+   "course_name": "思维方法论",
+   "code": "GENNET021",
+   "teaching_class": "(2026-2027-1)-GENNET021-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "C118",
+   "teacher": "1110025/郑群雄/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC748483BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET021-2": [
+  {
+   "course_name": "思维方法论",
+   "code": "GENNET021",
+   "teaching_class": "(2026-2027-1)-GENNET021-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "C118",
+   "teacher": "1110025/郑群雄/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC748983BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET030-3": [
+  {
+   "course_name": "食品营养学",
+   "code": "GENNET030",
+   "teaching_class": "(2026-2027-1)-GENNET030-3",
+   "time": "星期四第10-11节{6周}；星期四第10-12节{1-5周}",
+   "room": "B121",
+   "teacher": "1200003/鲍碧丽/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC764183BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET030-1": [
+  {
+   "course_name": "食品营养学",
+   "code": "GENNET030",
+   "teaching_class": "(2026-2027-1)-GENNET030-1",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "B121",
+   "teacher": "1200003/鲍碧丽/讲师",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC764683BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET049-1": [
+  {
+   "course_name": "走进微生物的世界",
+   "code": "GENNET049",
+   "teaching_class": "(2026-2027-1)-GENNET049-1",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "E119",
+   "teacher": "1110031/顾青/教授;2022206/陈向峰/无;1110165/郦萍/其他正高级",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC738F83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET055-02": [
+  {
+   "course_name": "智慧城市",
+   "code": "GENNET055",
+   "teaching_class": "(2026-2027-1)-GENNET055-02",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "A404",
+   "teacher": "2019001/周檀君/讲师",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC794783BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET055-01": [
+  {
+   "course_name": "智慧城市",
+   "code": "GENNET055",
+   "teaching_class": "(2026-2027-1)-GENNET055-01",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "A404",
+   "teacher": "2019001/周檀君/讲师",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC794C83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET059-1": [
+  {
+   "course_name": "功能因子与美容护理",
+   "code": "GENNET059",
+   "teaching_class": "(2026-2027-1)-GENNET059-1",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "C413",
+   "teacher": "1110170/牛付阁/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC72C383BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET061-02": [
+  {
+   "course_name": "网络安全入门与实践",
+   "code": "GENNET061",
+   "teaching_class": "(2026-2027-1)-GENNET061-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "现教319",
+   "teacher": "1120059/余斌霄/讲师",
+   "category": "通识选修课",
+   "rongliang": "30",
+   "yixuan": "30",
+   "jxb_id": "520F45EC75DA83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET062-1": [
+  {
+   "course_name": "全球视野下的运动健康-体态矫正",
+   "code": "GENNET062",
+   "teaching_class": "(2026-2027-1)-GENNET062-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "体育中心三楼第一健美操馆",
+   "teacher": "1160068/袁萌萌/讲师",
+   "category": "通识选修课",
+   "rongliang": "28",
+   "yixuan": "28",
+   "jxb_id": "520F45EC78E383BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENNET062-2": [
+  {
+   "course_name": "全球视野下的运动健康-体态矫正",
+   "code": "GENNET062",
+   "teaching_class": "(2026-2027-1)-GENNET062-2",
+   "time": "星期四第10-10节{13周}；星期四第10-12节{8-12周}",
+   "room": "体育中心三楼第一健美操馆",
+   "teacher": "1160068/袁萌萌/讲师",
+   "category": "通识选修课",
+   "rongliang": "28",
+   "yixuan": "28",
+   "jxb_id": "520F45EC78E883BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENWCE002-1": [
+  {
+   "course_name": "沟通与写作",
+   "code": "GENWCE002",
+   "teaching_class": "(2026-2027-1)-GENWCE002-1",
+   "time": "星期四第10-10节{6周}；星期四第10-12节{1-5周}",
+   "room": "经济115",
+   "teacher": "1180108/王庆生/讲师",
+   "category": "通识选修课",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC752383BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENWCE019-02": [
+  {
+   "course_name": "社会调查与研究方法",
+   "code": "GENWCE019",
+   "teaching_class": "(2026-2027-1)-GENWCE019-02",
+   "time": "星期四第10-11节{11周}；星期四第10-12节{1-10周}",
+   "room": "B331",
+   "teacher": "1150043/严霄云/副教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC733A83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "jxb_count": 1
+  }
+ ],
+ "(2026-2027-1)-GENEML072-01": [
+  {
+   "course_name": "美国法律文化",
+   "code": "GENEML072",
+   "teaching_class": "(2026-2027-1)-GENEML072-01",
+   "time": "星期四第6-6节{6周}；星期四第6-8节{1-5周}",
+   "room": "F225",
+   "teacher": "1100096/刘京莲/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC775A83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "影视鉴赏(2026-2027-1)-GENARC012-01": [
+  {
+   "course_name": "摄影艺术概论",
+   "code": "GENARC012",
+   "teaching_class": "影视鉴赏(2026-2027-1)-GENARC012-01",
+   "time": "星期四第6-6节{6周}；星期四第6-8节{1-5周}",
+   "room": "C222",
+   "teacher": "1140022/周志平/教授",
+   "category": "通识选修课",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC731083BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML048-1": [
+  {
+   "course_name": " 上市公司内部控制",
+   "code": "GENEML048",
+   "teaching_class": "(2026-2027-1)-GENEML048-1",
+   "time": "星期四第6-6节{6周}；星期四第6-8节{1-5周}",
+   "room": "B225",
+   "teacher": "1030049/张宜霞/副教授",
+   "category": "通识选修课",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC79F983BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENLHP001-1": [
+  {
+   "course_name": "西方哲学史",
+   "code": "GENLHP001",
+   "teaching_class": "(2026-2027-1)-GENLHP001-1",
+   "time": "星期四第6-6节{6周}；星期四第6-8节{1-5周}",
+   "room": "经济121",
+   "teacher": "1150024/石敏敏/教授",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC780783BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "xf": "1.0"
+  }
+ ],
+ "(2026-2027-1)-GENNET023-1": [
+  {
+   "course_name": "食品营养学",
+   "code": "GENNET023",
+   "teaching_class": "(2026-2027-1)-GENNET023-1",
+   "time": "星期四第6-6节{6周}；星期四第6-8节{1-5周}",
+   "room": "D215",
+   "teacher": "2019002/宦晨/讲师;2018030/沈淑铃/讲师",
+   "category": "通识选修课",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC74DF83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "智慧树网络课(2026-2027-1)-GENLHP085-01": [
+  {
+   "course_name": "西方文明史导论",
+   "code": "GENLHP085",
+   "teaching_class": "智慧树网络课(2026-2027-1)-GENLHP085-01",
+   "time": "星期四第7-8节{6-12周(双)}",
+   "room": "B121",
+   "teacher": "1140085/代成兵/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC77AE83BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "智慧树网络课"
+  }
+ ],
+ "(2026-2027-1)-GENICE007-1": [
+  {
+   "course_name": "企业经营实战",
+   "code": "GENICE007",
+   "teaching_class": "(2026-2027-1)-GENICE007-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "文科楼316",
+   "teacher": "2022158/金献坤/无",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC7A5783BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET061-1": [
+  {
+   "course_name": "网络安全入门与实践",
+   "code": "GENNET061",
+   "teaching_class": "(2026-2027-1)-GENNET061-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "现教319",
+   "teacher": "1120059/余斌霄/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "30",
+   "yixuan": "30",
+   "jxb_id": "520F45EC75D583BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENWCE030-1": [
+  {
+   "course_name": "恋爱心理学",
+   "code": "GENWCE030",
+   "teaching_class": "(2026-2027-1)-GENWCE030-1",
+   "time": "星期四第6-7节{13周}；星期四第6-8节{1-2周,4-6周(双),7-12周}",
+   "room": "管理210",
+   "teacher": "1270051/胡乃岩/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "75",
+   "yixuan": "75",
+   "jxb_id": "520F45EC75EC83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENICE126-01": [
+  {
+   "course_name": "生成式AI应用与跨界实战",
+   "code": "GENICE126",
+   "teaching_class": "(2026-2027-1)-GENICE126-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "艺术楼220",
+   "teacher": "2020004/张庆/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "23",
+   "yixuan": "23",
+   "jxb_id": "52221ED3A15B824AE063C98AA8C0CF01",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML052-1": [
+  {
+   "course_name": "美国政治与文化",
+   "code": "GENEML052",
+   "teaching_class": "(2026-2027-1)-GENEML052-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "D103",
+   "teacher": "1150029/吴雨欣/副教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC78F983BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET045-1": [
+  {
+   "course_name": "人工智能与机器学习",
+   "code": "GENNET045",
+   "teaching_class": "(2026-2027-1)-GENNET045-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "现教301",
+   "teacher": "1120085/杨晓东/副教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "33",
+   "yixuan": "33",
+   "jxb_id": "520F45EC791283BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET053-1": [
+  {
+   "course_name": "人工智能辅助的数字媒体创作",
+   "code": "GENNET053",
+   "teaching_class": "(2026-2027-1)-GENNET053-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "C417",
+   "teacher": "1090100/穆盼盼/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC77A283BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML081-01": [
+  {
+   "course_name": "稻盛经营哲学与经典战略理论",
+   "code": "GENEML081",
+   "teaching_class": "(2026-2027-1)-GENEML081-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "管理334",
+   "teacher": "2024003/吴剑峰/教授;2023125/丁沂昕/无",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "520F45EC77D883BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENEML086-01": [
+  {
+   "course_name": "财务报表与证券分析入门",
+   "code": "GENEML086",
+   "teaching_class": "(2026-2027-1)-GENEML086-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "B412",
+   "teacher": "2022091/沈昊旻/无;2021106/宛晴/讲师;2018129/胡国柳/教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "520F45EC760E83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET075-01": [
+  {
+   "course_name": "人工智能全球图景：前沿技术应用与跨文化对话",
+   "code": "GENNET075",
+   "teaching_class": "(2026-2027-1)-GENNET075-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "现教204",
+   "teacher": "1120076/周静静/副教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "53",
+   "yixuan": "53",
+   "jxb_id": "524B0B7E75D82733E063C98AA8C03BF5",
+   "campus": "下沙"
+  }
+ ],
+ "智慧树网络课(2026-2027-1)-GENARC067-01": [
+  {
+   "course_name": "Know Before You Go：趣谈“一带一路”国家",
+   "code": "GENARC067",
+   "teaching_class": "智慧树网络课(2026-2027-1)-GENARC067-01",
+   "time": "星期四第7-8节{2周,6-10周(双)}",
+   "room": "C117",
+   "teacher": "1070156/郦青/教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC78C183BDE063CA8AA8C0CB43",
+   "campus": "下沙",
+   "platform": "智慧树网络课"
+  }
+ ],
+ "艺术导论(2026-2027-1)-GENARC071-1": [
+  {
+   "course_name": "中外建筑与文化",
+   "code": "GENARC071",
+   "teaching_class": "艺术导论(2026-2027-1)-GENARC071-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "A222",
+   "teacher": "1010053/田敏/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "520F45EC783D83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "国情课(2026-2027-1)-GENEML053-01": [
+  {
+   "course_name": "中国城市经济与发展",
+   "code": "GENEML053",
+   "teaching_class": "国情课(2026-2027-1)-GENEML053-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "A404",
+   "teacher": "1040047/刘可文/副教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "55",
+   "yixuan": "55",
+   "jxb_id": "520F45EC755783BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENICE096-1": [
+  {
+   "course_name": "企业综合运营全景演练",
+   "code": "GENICE096",
+   "teaching_class": "(2026-2027-1)-GENICE096-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "文科楼416",
+   "teacher": "2019046/胡玉可/副教授;1030035/李娟/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "80",
+   "yixuan": "80",
+   "jxb_id": "520F45EC735E83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET056-1": [
+  {
+   "course_name": "实验室探索与研究",
+   "code": "GENNET056",
+   "teaching_class": "(2026-2027-1)-GENNET056-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-2周}；星期四第6-8节{3-4周}；星期四第6-8节{5-6周}；星期四第6-8节{7-8周}；星期四第6-8节{9-10周}",
+   "room": "文科楼101；文科楼118；信息楼217；食品楼518；环境楼431",
+   "teacher": "3120006/刘福奇/其他正高级;1110140/谈国凤/其他中级;1130096/蒋长兵/副教授;1260103/王晓青/其他中级;1110079/吴遵义/其他副高级;1020056/王莉/讲师",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "35",
+   "yixuan": "35",
+   "jxb_id": "520F45EC771A83BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENNET056-2": [
+  {
+   "course_name": "实验室探索与研究",
+   "code": "GENNET056",
+   "teaching_class": "(2026-2027-1)-GENNET056-2",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-2周}；星期四第6-8节{3-4周}；星期四第6-8节{5-6周}；星期四第6-8节{7-9周}；星期四第6-8节{10周}",
+   "room": "食品楼518；文科楼118；信息楼217；环境楼431；文科楼101",
+   "teacher": "1020056/王莉/讲师;1260103/王晓青/其他中级;1130096/蒋长兵/副教授;1110140/谈国凤/其他中级;3120006/刘福奇/其他正高级;1110079/吴遵义/其他副高级",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "35",
+   "yixuan": "35",
+   "jxb_id": "520F45EC772783BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENARC083-01": [
+  {
+   "course_name": "《周易》与中国文化",
+   "code": "GENARC083",
+   "teaching_class": "(2026-2027-1)-GENARC083-01",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "B331",
+   "teacher": "2020035/王绪琴/教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "100",
+   "yixuan": "100",
+   "jxb_id": "529CA4E2DEC6A717E063C98AA8C001BF",
+   "campus": "下沙"
+  }
+ ],
+ "(2026-2027-1)-GENWCE016-1": [
+  {
+   "course_name": "人际沟通艺术",
+   "code": "GENWCE016",
+   "teaching_class": "(2026-2027-1)-GENWCE016-1",
+   "time": "星期四第6-7节{11周}；星期四第6-8节{1-10周}",
+   "room": "B112",
+   "teacher": "1010034/葛笑春/副教授",
+   "category": "通识选修课",
+   "xf": "2.0",
+   "rongliang": "73",
+   "yixuan": "73",
+   "jxb_id": "520F45EC77B983BDE063CA8AA8C0CB43",
+   "campus": "下沙"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+# 运行产物 / 本地数据（不应提交）
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 打包产物（PyInstaller）
+build/
+dist/
+*.spec
+
+# 本程序运行期在 %LOCALAPPDATA%\工商大学选课助手\ 下生成，若误落在仓库里则忽略
+course_catalog.json
+course_catalog.json.*
+*.live_bak_*
+*.tmp
+logs/
+*.log
+
+# 导出的表格
+*.xlsx
+~$*.xlsx
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
