@@ -51,6 +51,34 @@ PROJECT_DIR = Path(__file__).resolve().parent
 # 资源与用户数据分离：正式版可整体替换升级，配置/状态/日志不丢失。
 APP_NAME = "工商大学选课助手"
 APP_VERSION = "v0.1.10"
+
+
+def _icon_path():
+    """定位图标文件，兼容「源码运行」与「PyInstaller 打包的 exe」两种跑法。
+
+    背景：打包成 exe 后 `Path(__file__).parent` 指向解包临时目录（sys._MEIPASS），
+    里面并没有 .ico；以前直接用它拼路径会 FileNotFoundError，被 except 静默吞掉，
+    结果窗口退回 Python 默认的羽毛图标（v0.1.9 及更早的免安装版都有这个毛病）。
+    这里改为按位置逐个尝试：打包目录 → exe 所在目录 → 源码目录。
+    """
+    names = ("zjgsu_launcher.ico", f"{APP_NAME}.ico")
+    cands = []
+    meipass = getattr(sys, "_MEIPASS", None)
+    if meipass:
+        cands.append(Path(meipass))
+    if getattr(sys, "frozen", False):
+        cands.append(Path(sys.executable).resolve().parent)
+        cands.append(Path(sys.executable).resolve().parent / "_internal")
+    cands.append(Path(__file__).resolve().parent)
+    for d in cands:
+        for n in names:
+            p = d / n
+            if p.exists():
+                return p
+    return None
+
+
+ICON_FILE = _icon_path()
 DATA_DIR = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local")) / APP_NAME
 DATA_LOG_DIR = DATA_DIR / "logs"
 PRESET_FILE = DATA_DIR / "course_presets.txt"
@@ -1458,8 +1486,11 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title(f"{APP_NAME} {APP_VERSION}")
+        # 图标路径按位置查找（见 _icon_path）：打包成 exe 后也能找到，
+        # 不再静默退回 Python 默认图标。找不到时跳过，不影响启动。
         try:
-            self.iconbitmap(default=str(PROJECT_DIR / "zjgsu_launcher.ico"))
+            if ICON_FILE:
+                self.iconbitmap(default=str(ICON_FILE))
         except Exception:
             pass
         # Tk 已经根据 tk scaling 处理控件尺寸，窗口几何不要再次乘 DPI，

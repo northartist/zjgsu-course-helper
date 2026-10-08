@@ -90,12 +90,15 @@ pip install pyinstaller
 pyinstaller --noconfirm --clean --onedir --windowed --name "工商大学选课助手" ^
   --icon zjgsu_launcher.ico ^
   --add-data "course_preset_details.json;." ^
+  --add-data "zjgsu_launcher.ico;." ^
   zjgsu_launcher.py
 ```
 
 产物在 `dist\工商大学选课助手\`，双击其中的 exe 即可。
 
-- **`course_preset_details.json` 必须一起打包**（`--add-data` 那行）——程序从「程序自己所在目录」读它
+- **`course_preset_details.json` 必须一起打包**（第 1 个 `--add-data`）——程序从「程序自己所在目录」读它
+- **`zjgsu_launcher.ico` 也一起打包**（第 2 个 `--add-data`）——窗口图标靠它。缺了不会崩，
+  但窗口会退回 Python 默认的羽毛图标（`docs/CHANGELOG.md` v0.1.10 记了这个坑）
 - 加 `--onefile` 可打成单文件（启动稍慢，首次解包要几秒）
 - 本仓库**不附带**打包产物；exe 未签名，部分杀软可能误报，自行判断
 - 数据目录不变（仍是 `%LOCALAPPDATA%\工商大学选课助手\`）
