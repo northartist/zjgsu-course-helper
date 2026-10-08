@@ -50,7 +50,7 @@ COOKIE_DOMAIN = "jwxt.zjgsu.edu.cn"
 PROJECT_DIR = Path(__file__).resolve().parent
 # 资源与用户数据分离：正式版可整体替换升级，配置/状态/日志不丢失。
 APP_NAME = "工商大学选课助手"
-APP_VERSION = "v0.1.9"
+APP_VERSION = "v0.1.10"
 DATA_DIR = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local")) / APP_NAME
 DATA_LOG_DIR = DATA_DIR / "logs"
 PRESET_FILE = DATA_DIR / "course_presets.txt"

@@ -6,7 +6,7 @@
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D4.svg)]()
-[![Version](https://img.shields.io/badge/version-v0.1.9-green.svg)](docs/CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v0.1.10-green.svg)](docs/CHANGELOG.md)
 
 > ⚠️ **非官方工具**：本项目由学生个人开发，与浙江工商大学教务处、教务处系统维护方无关。
 > 仅供学习研究与个人便利使用，请自行遵守学校相关规定，使用风险自负。
@@ -21,6 +21,7 @@
 | ![登录界面](docs/images/login.png) | ![搜索抢课](docs/images/search.png) |
 
 > 截图取自 v0.1.9 实际运行界面（课程数据为空，不含任何个人信息）。
+> v0.1.10 起换了全新图标（见 `docs/CHANGELOG.md`），界面本身未变。
 
 ---
 
