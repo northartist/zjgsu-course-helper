@@ -1,7 +1,7 @@
 # 技术说明（Architecture & Internals）
 
-> 写给想改代码 / 想知道「它到底怎么做到的」的人。所有描述以 **v0.1.10 源码** 为准
-> （v0.1.10 只换了图标与版本号，未动界面与业务逻辑，故下文对 v0.1.9 的说明依然成立）。
+> 写给想改代码 / 想知道「它到底怎么做到的」的人。本文对应 **v0.1.11 源码**，学校适配入口见下文及 `ADAPTING.md`
+> v0.1.11 新增适配器扩展入口，默认浙工商接口链路与业务规则保持不变。
 
 ## 1. 三层结构
 
@@ -10,7 +10,7 @@ zjgsu_launcher.py   (GUI + 调度层，约 3800 行)
    ├─ Tkinter 界面：5 个 Tab、日志框、状态行
    ├─ 任务调度：工作线程 + queue 事件回传 + 看门狗
    └─ 抢课循环 monitor_rush()：串行提交、节流、收工判定
-        ↓ 调用
+         ↓ make_client() → school_adapter.create_adapter()（默认 zjgsu）
 zjgsu_api.py        (接口层，约 500 行)
    ├─ capture_cookie_from_edge()：CDP 读 Cookie
    ├─ ZjgsuClient：init / fetch_course / fetch_all_courses(_detailed) /
@@ -143,7 +143,17 @@ TEACHING_CLASS_CORE_RE = re.compile(r"\((\d{4})-(\d{4})-(\d)\)-([A-Za-z0-9]+)-([
 - 教务接口随时可能变更，届时需要按上面的链路表重新对照抓包结果调整
 - 只做「查询 + 提交志愿 + 对账」，不实现退课、换班等写操作
 
-## 10. 依赖与协议
+## 10. 学校适配入口
+
+`school_adapter.py` 定义 `SchoolAdapter` 协议、共享 `Course` / `Jxb` 模型和注册工厂。
+`make_client()` 已通过工厂创建客户端，默认继续使用 `ZjgsuClient`；旧的
+`from zjgsu_api import Course, Jxb` 导入方式保持可用。
+
+这一步只预留开发入口，界面没有增加学校选择，域名校验、Cookie、课程分类、名额目标、
+校区和时间规则仍沿用浙工商实现。新增学校必须逐项适配，不能只注册客户端就宣称支持。
+接口契约、示例和验证范围见 [`ADAPTING.md`](ADAPTING.md)。
+
+## 11. 依赖与协议
 
 第三方组件、接口参考来源与协议标注见 [`../THIRD-PARTY.md`](../THIRD-PARTY.md)；
 本项目本体协议为 **AGPL-3.0**（见 [`../LICENSE`](../LICENSE)）。

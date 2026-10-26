@@ -8,6 +8,7 @@ import queue
 import re
 import shutil
 import subprocess
+import sys
 import threading
 import time
 import traceback
@@ -22,6 +23,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from course_state import (CourseStateStore, DEFAULT_TARGETS, completion_snapshot,
                           timetable_slots, layout_timetable_slots, teaching_class_core)
+from school_adapter import DEFAULT_SCHOOL_ID, SchoolAdapter, create_adapter
 
 # ---- 高分屏 DPI 适配：必须在创建任何窗口前调用 ----
 import ctypes
@@ -50,7 +52,7 @@ COOKIE_DOMAIN = "jwxt.zjgsu.edu.cn"
 PROJECT_DIR = Path(__file__).resolve().parent
 # 资源与用户数据分离：正式版可整体替换升级，配置/状态/日志不丢失。
 APP_NAME = "工商大学选课助手"
-APP_VERSION = "v0.1.10"
+APP_VERSION = "v0.1.11"
 
 
 def _icon_path():
@@ -336,10 +338,13 @@ def verify_cookie_full(base_url: str, cookie: str, log) -> str:
     return "无法确认Cookie，请重新登录后抓取"
 
 
-def make_client(base_url: str, cookie: str, log):
-    from zjgsu_api import ZjgsuClient
-    client = ZjgsuClient(cookie, base_url=base_url, log=log)
-    log("已使用浙工商直连模块（requests 复刻，绕过 lnuElytra 编译绑定）。")
+def make_client(base_url: str, cookie: str, log, *,
+                school_id: str = DEFAULT_SCHOOL_ID) -> SchoolAdapter:
+    client = create_adapter(cookie=cookie, base_url=base_url, log=log, school_id=school_id)
+    if school_id == DEFAULT_SCHOOL_ID:
+        log("已使用浙工商直连模块（requests 复刻，绕过 lnuElytra 编译绑定）。")
+    else:
+        log(f"已使用学校适配器：{school_id}")
     return client
 
 
