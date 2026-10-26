@@ -87,12 +87,21 @@ python zjgsu_launcher.py
 > 想改代码 / 提 PR，先看 [`CONTRIBUTING.md`](CONTRIBUTING.md)（含代码约定与提交口径注意事项）。
 > 每次重启软件都要重新点一次「抓取 Cookie」（教务 Cookie 不落盘）。
 
+## 其他学校能用吗？
+
+目前只支持**浙江工商大学**。即使其他学校也使用正方系统，登录方式、接口参数和选课规则仍可能不同，不能只改域名就直接使用。
+
+代码已预留 `SchoolAdapter` 接口和适配器注册入口，方便开发者新增学校实现；当前内置适配器和界面登录流程仍只有浙工商。
+如希望适配，请在 Issue 中补充**学校名称、教务系统入口**，有条件再提供脱敏后的页面或请求响应示例（不要公开 Cookie、令牌或个人信息）。
+开发说明见 [`docs/ADAPTING.md`](docs/ADAPTING.md)。
+
 ## 项目结构
 
 ```
 zjgsu-course-helper/
 ├── zjgsu_launcher.py            # 主程序：Tkinter GUI + 抢课循环 + 线程池调度（约 3800 行）
 ├── zjgsu_api.py                 # 教务接口层：Cookie 抓取(CDP) + init/fetch/select 全链路
+├── school_adapter.py            # 学校接口契约、共享课程模型、适配器工厂（默认浙工商）
 ├── course_state.py              # 状态与规则：去重(核心教学班号)、课表时段、进度统计
 ├── course_preset_details.json   # 教学班详情缓存（课程名/时间/教室/教师/学分…）
 ├── backfill_catalog.py          # 一次性维护脚本：从历史 xlsx 回填课程缓存字段

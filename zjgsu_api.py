@@ -12,7 +12,8 @@ import json
 import re
 import urllib.request
 from urllib.parse import urlparse
-from dataclasses import dataclass, field
+
+from school_adapter import Course, Jxb
 
 import requests
 import websocket  # websocket-client
@@ -114,31 +115,6 @@ def parse_selected_courses_json(rows: list[dict]) -> dict:
             "xkkz_id": str(row.get("xkkz_id") or ""),
         })
     return {"count": len(courses), "credits": f"{credits:g}", "courses": courses}
-
-
-@dataclass
-class Jxb:
-    jxb_id: str
-    do_id: str
-    jxbmc: str = ""
-    jsxx: str = ""
-    sksj: str = ""
-    yxzrs: str = ""
-    jxbrl: str = ""
-    # 上课校区（教务权威字段）：教工路校区的课必须能一眼认出来，否则下沙的学生
-    # 会抢到一门需要跨校区通勤的课。jxbmc 前缀是第二层保险。
-    xqumc: str = ""
-    jxdd: str = ""
-
-
-@dataclass
-class Course:
-    xkkz_id: str = ""
-    kch_id: str = ""
-    kcmc: str = ""        # 课程名（fetch 命中时回填，供 UI 显示/预设推断）
-    tab_name: str = ""    # 命中轮次名（体育分项/英语分项/通识选修课…），用于 PE/EN/GE 前缀
-    jxb: list = field(default_factory=list)
-    kch: str = ""         # 课程号（GENNET030 这种）；用于"同一门课只押一个班"的去重
 
 
 class ZjgsuClient:

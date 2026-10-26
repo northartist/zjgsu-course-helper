@@ -127,6 +127,7 @@ pyinstaller --noconfirm --clean --onedir --windowed --name "工商大学选课�
 |---|---|
 | `zjgsu_launcher.py` | 主程序（GUI + 抢课循环） |
 | `zjgsu_api.py` | 教务接口层（含 Cookie 抓取） |
+| `school_adapter.py` | 学校接口契约、共享课程模型与工厂（运行时必需，便携部署需一同复制） |
 | `course_state.py` | 状态与规则（去重、课表、进度） |
 | `course_preset_details.json` | 教学班详情预设表（程序运行时读取） |
 | `backfill_catalog.py` | 一次性维护脚本（不需要日常运行） |
