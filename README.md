@@ -6,7 +6,7 @@
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D4.svg)]()
-[![Version](https://img.shields.io/badge/version-v0.1.10-green.svg)](docs/CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v0.1.11-green.svg)](docs/CHANGELOG.md)
 
 > ⚠️ **非官方工具**：本项目由学生个人开发，与浙江工商大学教务处、教务处系统维护方无关。
 > 仅供学习研究与个人便利使用，请自行遵守学校相关规定，使用风险自负。

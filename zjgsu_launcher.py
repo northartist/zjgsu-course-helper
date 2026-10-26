@@ -52,7 +52,7 @@ COOKIE_DOMAIN = "jwxt.zjgsu.edu.cn"
 PROJECT_DIR = Path(__file__).resolve().parent
 # 资源与用户数据分离：正式版可整体替换升级，配置/状态/日志不丢失。
 APP_NAME = "工商大学选课助手"
-APP_VERSION = "v0.1.10"
+APP_VERSION = "v0.1.11"
 
 
 def _icon_path():
