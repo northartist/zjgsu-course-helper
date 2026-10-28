@@ -1,4 +1,4 @@
-"""学校接口扩展入口；当前内置实现只有浙江工商大学。
+"""学校接口扩展入口；浙工商完整实现与川影登录骨架。
 
 保留现有课程字段，便于逐步迁移 GUI。各适配器负责解释自己的接口参数、
 凭据作用域及返回值；注册接口本身不会启用其他学校的登录或业务规则。
@@ -72,7 +72,13 @@ def _create_zjgsu(cookie: str, base_url: str | None,
     return ZjgsuClient(cookie, base_url=base_url or BASE, log=log)
 
 
-_FACTORIES: dict[str, AdapterFactory] = {DEFAULT_SCHOOL_ID: _create_zjgsu}
+def _create_sfc(cookie: str, base_url: str | None,
+                log: Log | None) -> SchoolAdapter:
+    from sfc_api import BASE, SfcClient
+    return SfcClient(cookie, base_url=base_url or BASE, log=log)
+
+
+_FACTORIES: dict[str, AdapterFactory] = {DEFAULT_SCHOOL_ID: _create_zjgsu, "sfc": _create_sfc}
 
 
 def register_adapter(school_id: str, factory: AdapterFactory) -> None:

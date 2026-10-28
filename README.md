@@ -89,9 +89,13 @@ python zjgsu_launcher.py
 
 ## 其他学校能用吗？
 
-目前只支持**浙江工商大学**。即使其他学校也使用正方系统，登录方式、接口参数和选课规则仍可能不同，不能只改域名就直接使用。
+完整课程流程目前只支持**浙江工商大学**。登录页可选择 `zjgsu` 或 `sfc`：
+**四川电影电视学院仅有可离线测试的登录骨架**，可以打开独立 Edge 的账号密码入口、抓取本校 Cookie。
+川影登录后验证地址及成功标记尚待脱敏样本确认，默认不会认定登录成功；课程查询、提交和已选对账均未启用。
+即使同用正方系统，也不能只改域名就直接使用。
 
-代码已预留 `SchoolAdapter` 接口和适配器注册入口，方便开发者新增学校实现；当前内置适配器和界面登录流程仍只有浙工商。
+`SchoolAdapter` 工厂已注册两校；切校会清空 Cookie，川影模式禁用业务 Tab 和自动已选对账。
+川影骨架的边界与待验证字段见 [`docs/SFC_LOGIN.md`](docs/SFC_LOGIN.md)。
 如希望适配，请在 Issue 中补充**学校名称、教务系统入口**，有条件再提供脱敏后的页面或请求响应示例（不要公开 Cookie、令牌或个人信息）。
 开发说明见 [`docs/ADAPTING.md`](docs/ADAPTING.md)。
 
@@ -102,6 +106,8 @@ zjgsu-course-helper/
 ├── zjgsu_launcher.py            # 主程序：Tkinter GUI + 抢课循环 + 线程池调度（约 3800 行）
 ├── zjgsu_api.py                 # 教务接口层：Cookie 抓取(CDP) + init/fetch/select 全链路
 ├── school_adapter.py            # 学校接口契约、共享课程模型、适配器工厂（默认浙工商）
+├── login_session.py             # 按学校隔离的浏览器 Cookie / HTTP 会话 / 登录检查
+├── sfc_api.py                   # 川影登录骨架（业务方法明确拒绝调用）
 ├── course_state.py              # 状态与规则：去重(核心教学班号)、课表时段、进度统计
 ├── course_preset_details.json   # 教学班详情缓存（课程名/时间/教室/教师/学分…）
 ├── backfill_catalog.py          # 一次性维护脚本：从历史 xlsx 回填课程缓存字段
