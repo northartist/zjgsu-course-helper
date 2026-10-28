@@ -8,15 +8,13 @@
 """
 from __future__ import annotations
 
-import json
 import re
-import urllib.request
-from urllib.parse import urlparse
 
 from school_adapter import Course, Jxb
+from login_session import (SessionProbe, check_login_session, create_login_session,
+                           login_profile, normalize_school_base, capture_browser_cookie)
 
 import requests
-import websocket  # websocket-client
 from bs4 import BeautifulSoup
 
 BASE = "https://jwxt.zjgsu.edu.cn/jwglxt/"
@@ -32,16 +30,7 @@ SELECTED_DISPLAY_URL = "xsxk/zzxkyzb_cxZzxkYzbChoosedDisplay.html"
 
 
 def normalize_base(base: str) -> str:
-    """Return a trusted, normalized Zhejiang Gongshang base URL."""
-    value = (base or BASE).strip()
-    if not value.endswith("/"):
-        value += "/"
-    parsed = urlparse(value)
-    if parsed.scheme != "https" or parsed.hostname != "jwxt.zjgsu.edu.cn":
-        raise ValueError("服务器地址必须是 https://jwxt.zjgsu.edu.cn/ 下的地址")
-    if not parsed.path.rstrip("/").endswith("/jwglxt"):
-        raise ValueError("服务器地址必须指向 /jwglxt/")
-    return value
+    return normalize_school_base(base, "zjgsu")
 
 
 def parse_selected_courses_html(html: str) -> dict:
@@ -125,11 +114,7 @@ class ZjgsuClient:
         self.stores: dict = {}
         self._last_index_html = ""
         self._select_signatures: set = set()
-        self.s = requests.Session()
-        for kv in cookie.split(";"):
-            if "=" in kv:
-                k, v = kv.split("=", 1)
-                self.s.cookies.set(k.strip(), v.strip(), domain="jwxt.zjgsu.edu.cn")
+        self.s = create_login_session(cookie, self.base, school_id="zjgsu")
 
     def _h(self, referer=None):
         h = {"User-Agent": UA}
@@ -138,10 +123,13 @@ class ZjgsuClient:
         return h
 
     def check_login(self) -> bool:
-        r = self.s.get(self.base + "xtgl/index_initMenu.html?jsdm=xs", headers=self._h(), timeout=15)
-        ok = r.status_code == 200 and "login" not in r.url.lower() and "cas" not in r.url.lower()
-        self.log(f"[直连] check_login: {r.status_code}, len={len(r.text)}, ok={ok}")
-        return ok
+        # Existing ZJGSU probe; SFC does not inherit this URL or predicate.
+        probe = SessionProbe(self.base + "xtgl/index_initMenu.html?jsdm=xs",
+                             lambda r: "login" not in r.url.lower() and "cas" not in r.url.lower())
+        self.login_check = check_login_session(self.s, login_profile("zjgsu"), probe,
+                                                headers=self._h(), follow_redirects=True)
+        self.log(f"[直连] check_login: {self.login_check.status}")
+        return self.login_check.status == "authenticated"
 
     def init(self) -> bool:
         """GET 选课索引页，提取所有 hidden input 到 stores，并解析全部选课 Tab。"""
@@ -358,13 +346,10 @@ class ZjgsuClient:
             self.log(f"[直连] QueryDo({kch_id[:8]}) 非 JSON: {r.status_code} {r.text[:100]} ({e})")
             return []
 
-    def _new_session(self) -> "requests.Session":
-        s = requests.Session()
-        for kv in self.cookie.split(";"):
-            if "=" in kv:
-                k, v = kv.split("=", 1)
-                s.cookies.set(k.strip(), v.strip(), domain="jwxt.zjgsu.edu.cn")
-        return s
+    def _new_session(self) -> requests.Session:
+        session = create_login_session("", self.base, school_id="zjgsu")
+        session.cookies.update(self.s.cookies)
+        return session
 
     def fetch_all_courses_detailed(self, page_size: int = 1000, max_pages: int = 200,
                                    workers: int = 8, log=None) -> list:
@@ -454,31 +439,6 @@ class ZjgsuClient:
             return "", r.text[:200]
 
 
-def capture_cookie_from_edge(port: int = DEBUG_PORT, log=None) -> str:
-    log = log or (lambda m: None)
-    tabs = json.load(urllib.request.urlopen(f"http://127.0.0.1:{port}/json", timeout=5))
-    tab = next((t for t in tabs if t.get("type") == "page"), None)
-    if not tab:
-        raise RuntimeError("未找到 Edge 页面")
-    ws = websocket.create_connection(tab["webSocketDebuggerUrl"], timeout=15)
-    ws.send(json.dumps({"id": 1, "method": "Network.enable"}))
-    while True:
-        r = json.loads(ws.recv())
-        if r.get("id") == 1:
-            break
-    ws.send(json.dumps({"id": 2, "method": "Network.getCookies", "params": {"urls": [BASE]}}))
-    cookies = []
-    while True:
-        r = json.loads(ws.recv())
-        if r.get("id") == 2:
-            cookies = r.get("result", {}).get("cookies", [])
-            break
-    ws.close()
-    parts = []
-    for c in cookies:
-        if c.get("domain", "").endswith("zjgsu.edu.cn"):
-            parts.append(f"{c['name']}={c['value']}")
-    cookie = "; ".join(parts)
-    names = [c["name"] for c in cookies if c.get("domain", "").endswith("zjgsu.edu.cn")]
-    log(f"[抓取] 共 {len(names)} 条: {', '.join(names)}")
-    return cookie
+def capture_cookie_from_edge(port: int = DEBUG_PORT, timeout: int = 5) -> str:
+    """Compatibility entry point; browser capture now enforces school scope."""
+    return capture_browser_cookie(school_id="zjgsu", port=port, timeout=timeout)

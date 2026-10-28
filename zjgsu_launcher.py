@@ -14,7 +14,6 @@ import time
 import traceback
 import urllib.request
 import urllib.error
-from urllib.parse import urlparse
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -24,6 +23,8 @@ from tkinter import ttk, messagebox, filedialog
 from course_state import (CourseStateStore, DEFAULT_TARGETS, completion_snapshot,
                           timetable_slots, layout_timetable_slots, teaching_class_core)
 from school_adapter import DEFAULT_SCHOOL_ID, SchoolAdapter, create_adapter
+from login_session import (LOGIN_PROFILES, capture_browser_cookie, login_profile,
+                           normalize_school_base, parse_cookie_pairs)
 
 # ---- 高分屏 DPI 适配：必须在创建任何窗口前调用 ----
 import ctypes
@@ -47,8 +48,8 @@ def _enable_dpi_awareness() -> float:
 
 DPI_SCALE = _enable_dpi_awareness()
 
-BASE_URL_DEFAULT = "https://jwxt.zjgsu.edu.cn/jwglxt/"
-COOKIE_DOMAIN = "jwxt.zjgsu.edu.cn"
+BASE_URL_DEFAULT = login_profile(DEFAULT_SCHOOL_ID).base_url
+COOKIE_DOMAIN = login_profile(DEFAULT_SCHOOL_ID).host  # Compatibility alias.
 PROJECT_DIR = Path(__file__).resolve().parent
 # 资源与用户数据分离：正式版可整体替换升级，配置/状态/日志不丢失。
 APP_NAME = "工商大学选课助手"
@@ -142,16 +143,8 @@ class LocalSearchResult:
     credits_cond: str = ""   # 本次学分筛选选中的值（如 "1/2"）
 
 
-def normalize_base(base: str) -> str:
-    base = (base or BASE_URL_DEFAULT).strip()
-    if not base.endswith("/"):
-        base += "/"
-    parsed = urlparse(base)
-    if parsed.scheme != "https" or parsed.hostname != COOKIE_DOMAIN:
-        raise ValueError("服务器地址必须是 https://jwxt.zjgsu.edu.cn/ 下的地址")
-    if not parsed.path.rstrip("/").endswith("/jwglxt"):
-        raise ValueError("服务器地址必须指向 /jwglxt/")
-    return base
+def normalize_base(base: str, *, school_id: str = DEFAULT_SCHOOL_ID) -> str:
+    return normalize_school_base(base, school_id)
 
 
 def mask_cookie(cookie: str) -> str:
@@ -168,29 +161,34 @@ def mask_cookie(cookie: str) -> str:
     return "; ".join(out)
 
 
-def build_edge_args(base_url: str, port: int = DEBUG_PORT):
+def build_edge_args(base_url: str, port: int | None = None, *,
+                    school_id: str = DEFAULT_SCHOOL_ID):
+    profile = login_profile(school_id)
+    normalize_base(base_url, school_id=school_id)
+    port = profile.debug_port if port is None else port
     return [
         str(EDGE_EXE),
         f"--remote-debugging-port={port}",
         "--remote-debugging-address=127.0.0.1",
         f"--remote-allow-origins=http://127.0.0.1:{port}",
-        f"--user-data-dir={EDGE_PROFILE}",
+        f"--user-data-dir={DATA_DIR / ('edge_profile_' + school_id)}",
         "--new-window",
-        normalize_base(base_url),
+        profile.login_url,
     ]
 
 
-def launch_login_browser(base_url: str, log):
+def launch_login_browser(base_url: str, log, *, school_id: str = DEFAULT_SCHOOL_ID):
+    args = build_edge_args(base_url, school_id=school_id)
     if not EDGE_EXE.exists():
         raise RuntimeError("没有找到 Microsoft Edge。")
-    EDGE_PROFILE.mkdir(parents=True, exist_ok=True)
-    subprocess.Popen(build_edge_args(base_url), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    log("已打开独立 Edge 登录窗口。登录成功后回到这里点“自动抓取 Cookie”。")
+    (DATA_DIR / ("edge_profile_" + school_id)).mkdir(parents=True, exist_ok=True)
+    subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    log("已打开独立 Edge 登录窗口。请完成账号密码登录后，再抓取 Cookie。")
 
 
-def close_login_browser(log):
+def close_login_browser(log, *, school_id: str = DEFAULT_SCHOOL_ID):
     import websocket
-    tabs = _json_get(f"http://127.0.0.1:{DEBUG_PORT}/json")
+    tabs = _json_get(f"http://127.0.0.1:{login_profile(school_id).debug_port}/json")
     target = next((tab for tab in tabs if tab.get("webSocketDebuggerUrl")), None)
     if not target:
         raise RuntimeError("没有找到独立 Edge 调试窗口。")
@@ -207,135 +205,64 @@ def _json_get(url: str, timeout=3):
         return json.loads(r.read().decode("utf-8", "replace"))
 
 
-def capture_cookie_from_edge(log) -> str:
+def capture_cookie_from_edge(log, *, school_id: str = DEFAULT_SCHOOL_ID) -> str:
+    return capture_browser_cookie(log, school_id=school_id)
+
+
+def validate_cookie_format(cookie: str, *, school_id: str = DEFAULT_SCHOOL_ID) -> tuple[bool, str]:
+    login_profile(school_id)
     try:
-        tabs = _json_get(f"http://127.0.0.1:{DEBUG_PORT}/json")
-    except Exception as e:
-        raise RuntimeError("没有连上登录浏览器。请先点“打开登录窗口”。") from e
-    candidates = [tab for tab in tabs if COOKIE_DOMAIN in tab.get("url", "")]
-    # 同时打开门户、首页和自主选课页时，优先绑定当前带 CAS ticket 的选课页。
-    # 直接取第一个标签页可能拿到未完成 SSO 的首页，导致 Cookie 看似完整但无法访问选课入口。
-    target = max(candidates, key=lambda tab: (
-        "/xsxk/" in tab.get("url", ""),
-        "ticket=" in tab.get("url", ""),
-        tab.get("type") == "page",
-    ), default=None)
-
-    if not target and tabs:
-        target = tabs[0]
-    if not target or not target.get("webSocketDebuggerUrl"):
-        raise RuntimeError("没找到可读取的浏览器标签页。")
-
-    import websocket
-    try:
-        ws = websocket.create_connection(target["webSocketDebuggerUrl"], timeout=5)
-    except Exception as e:
-        raise RuntimeError("浏览器拒绝 WebSocket 调试连接。已修复启动参数，请关闭旧的独立 Edge 登录窗口后，重新点“打开登录窗口”。") from e
-    try:
-        ws.send(json.dumps({"id": 1, "method": "Network.enable"}))
-        ws.recv()
-        ws.send(json.dumps({"id": 2, "method": "Network.getCookies", "params": {
-            "urls": ["https://jwxt.zjgsu.edu.cn/jwglxt/xsxk/zzxkyzb_cxZzxkYzbIndex.html"]
-        }}))
-        cookies = []
-        deadline = time.time() + 5
-        while time.time() < deadline:
-            msg = json.loads(ws.recv())
-            if msg.get("id") == 2:
-                cookies = msg.get("result", {}).get("cookies", [])
-                break
-    finally:
-        ws.close()
-
-    pairs = []
-    for c in cookies:
-        d, n, v = c.get("domain", ""), c.get("name", ""), c.get("value", "")
-        if n and ("zjgsu.edu.cn" in d or d.endswith(".zjgsu.edu.cn")):
-            pairs.append(f"{n}={v}")
-    if not pairs:
-        raise RuntimeError("没有抓到浙江工商教务 Cookie，请确认独立 Edge 已登录成功。")
-    cookie = "; ".join(pairs)
-    log(f"已抓取 {len(pairs)} 条 Cookie：{mask_cookie(cookie)}")
-    return cookie
-
-
-def parse_cookie_pairs(cookie: str) -> dict:
-    pairs = {}
-    for item in cookie.split(";"):
-        item = item.strip()
-        if not item or "=" not in item:
-            continue
-        k, v = item.split("=", 1)
-        if k.strip():
-            pairs[k.strip()] = v.strip()
-    return pairs
-
-
-def validate_cookie_format(cookie: str) -> tuple[bool, str]:
-    pairs = parse_cookie_pairs(cookie)
+        pairs = parse_cookie_pairs(cookie)
+    except ValueError as exc:
+        return False, str(exc)
     if not pairs:
         return False, "Cookie 为空或格式不对，应该类似 JSESSIONID=xxx; route=xxx"
     has_session = any(k.upper() in {"JSESSIONID", "SESSION", "JSESSIONIDSSO"} or "SESSION" in k.upper() for k in pairs)
-    if not has_session:
+    if school_id == DEFAULT_SCHOOL_ID and not has_session:
         return False, "Cookie 里没有明显的 Session 字段，可能复制错页面了。"
     return True, f"Cookie 格式正常，共 {len(pairs)} 项：" + ", ".join(list(pairs.keys())[:8])
 
 
-def http_verify_cookie(base_url: str, cookie: str) -> tuple[str, str]:
-    url = normalize_base(base_url) + "xtgl/index_initMenu.html"
-    req = urllib.request.Request(url, headers={
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36 Edg/120",
-        "Cookie": cookie,
-        "Referer": normalize_base(base_url),
-    })
-    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor())
+def http_verify_cookie(base_url: str, cookie: str, *,
+                       school_id: str = DEFAULT_SCHOOL_ID) -> tuple[str, str]:
+    client = make_client(base_url, cookie, lambda _: None, school_id=school_id)
     try:
-        resp = opener.open(req, timeout=10)
-        final_url = resp.geturl()
-        body = resp.read(5000).decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        final_url = e.geturl()
-        body = e.read(3000).decode("utf-8", "replace")
-    except Exception as e:
-        return "unknown", f"HTTP 验证失败：{type(e).__name__}: {e}"
-
-    low = (final_url + "\n" + body).lower()
-    if "cas/login" in low or "统一身份认证" in body or "login" in final_url.lower():
-        return "invalid", "HTTP 验证：被跳回统一认证/登录页，Cookie 大概率无效或不完整。"
-    if "sessionuserkey" in low or "index_initmenu" in low or "教学管理" in body or "jwglxt" in final_url.lower():
-        return "valid", "HTTP 验证：能访问教务系统页面，Cookie 基本有效。"
-    return "unknown", f"HTTP 验证：未能明确判断。最终地址：{final_url}"
+        ok = client.check_login()
+        check = client.login_check
+        status = "valid" if ok else "invalid" if check.status == "unauthenticated" else "unknown"
+        return status, check.message
+    finally:
+        client.s.close()
 
 
-def verify_cookie_full(base_url: str, cookie: str, log) -> str:
-    ok, msg = validate_cookie_format(cookie)
+def verify_cookie_full(base_url: str, cookie: str, log, *,
+                       school_id: str = DEFAULT_SCHOOL_ID) -> str:
+    ok, msg = validate_cookie_format(cookie, school_id=school_id)
     log("[格式检查] " + msg)
     if not ok:
         return "Cookie格式错误"
-    http_status, http_msg = http_verify_cookie(base_url, cookie)
-    log("[HTTP检查] " + http_msg)
-    client = make_client(base_url, cookie, log)
+    client = make_client(base_url, cookie, log, school_id=school_id)
     try:
-        key = client.check_login()
-        if key:
-            log("[登录检查] check_login 成功：已登录")
+        if client.check_login():
+            log("[登录检查] 登录会话已通过验证")
             return "Cookie有效，且已登录"
-        log("[登录检查] check_login 未通过（可能已过期）")
-    except Exception as e:
-        log("[登录检查] check_login 失败：" + type(e).__name__ + ": " + str(e))
-    try:
-        ok_init = client.init()
-        if ok_init:
-            log("[选课检查] init 成功：选课已开放/参数可用")
-            return "Cookie有效，选课已开放"
-        log("[选课检查] init 未成功：选课入口拿不到参数")
-    except Exception as e:
-        log("[选课检查] init 未成功：" + type(e).__name__ + ": " + str(e))
-    if http_status == "valid":
-        return "Cookie基本有效，等待选课开放"
-    if http_status == "invalid":
-        return "Cookie无效或已过期"
-    return "无法确认Cookie，请重新登录后抓取"
+        check = client.login_check
+        log("[登录检查] " + check.message)
+        # SFC must never fall through to ZJGSU's course initialization.
+        if school_id != DEFAULT_SCHOOL_ID:
+            return "川影登录尚未确认：" + check.message
+        if check.status == "unauthenticated":
+            return "Cookie无效或已过期"
+        if check.status == "unavailable":
+            return "教务入口暂不可用，无法确认登录"
+        try:
+            if client.init():
+                return "Cookie有效，选课已开放"
+        except Exception as exc:
+            log("[选课检查] init 未成功：" + type(exc).__name__)
+        return "无法确认Cookie，请重新登录后抓取"
+    finally:
+        client.s.close()
 
 
 def make_client(base_url: str, cookie: str, log, *,
@@ -466,10 +393,9 @@ def should_continue_for_msg(msg: str, retry_rate: bool, watch_full: bool) -> tup
     return False, 0.0, ""
 
 
-def pull_all_courses(base_url: str, cookie: str, log):
+def pull_all_courses(base_url: str, cookie: str, log, *, school_id: str = DEFAULT_SCHOOL_ID):
     """用直连模块分页拉取全部教学班，并并行补上时间/教室/教师/人数等详情。"""
-    from zjgsu_api import ZjgsuClient
-    client = ZjgsuClient(cookie, base_url=base_url, log=log)
+    client = make_client(base_url, cookie, log, school_id=school_id)
     if not client.init():
         raise RuntimeError("选课尚未开放：选课入口拿不到参数，请等开放后再试。")
     rows = client.fetch_all_courses_detailed(page_size=1000, max_pages=200, workers=8, log=log)
@@ -1162,8 +1088,8 @@ def match_pending_preset(pending: list[str], result_keyword: str, teaching_class
     return teaching_class or result_keyword
 
 
-def monitor_rush(base_url, cookie, presets, selector, interval, max_success, max_rounds, retry_rate, watch_full, parallel, auto_after_init, stop_event, log, on_success=None, initial_category_success=None, focus_count=0, full_wait=DEFAULT_FULL_WAIT, done_courses=None):
-    client = make_client(base_url, cookie, log)
+def monitor_rush(base_url, cookie, presets, selector, interval, max_success, max_rounds, retry_rate, watch_full, parallel, auto_after_init, stop_event, log, on_success=None, initial_category_success=None, focus_count=0, full_wait=DEFAULT_FULL_WAIT, done_courses=None, *, school_id=DEFAULT_SCHOOL_ID):
+    client = make_client(base_url, cookie, log, school_id=school_id)
     presets = [p.strip() for p in presets if p.strip()]
     if not presets:
         raise RuntimeError("预设课程为空。")
@@ -1637,7 +1563,48 @@ class App(tk.Tk):
         ttk.Button(btnrow, text="验证 Cookie", style="Accent.TButton", command=self.verify_cookie).pack(side="left")
         ttk.Button(btnrow, text="Cookie 登录 / 检查状态", command=self.check_cookie_login).pack(side="left", padx=8)
         ttk.Button(btnrow, text="关闭登录窗口 / 调试端口", command=self.close_browser).pack(side="left")
+        ttk.Label(f, text="学校", style="Card.TLabel").grid(row=3, column=0, sticky="w")
+        self.school_var = tk.StringVar(value=login_profile(DEFAULT_SCHOOL_ID).name)
+        self._active_school = DEFAULT_SCHOOL_ID
+        self.school_box = ttk.Combobox(f, textvariable=self.school_var,
+                                      values=[p.name for p in LOGIN_PROFILES.values()], state="readonly", width=36)
+        self.school_box.grid(row=3, column=1, sticky="w", padx=10)
+        self.school_box.bind("<<ComboboxSelected>>", self.change_school)
+        self.school_note = tk.StringVar(value="浙江工商大学")
+        ttk.Label(f, textvariable=self.school_note, wraplength=760).grid(
+            row=4, column=1, columnspan=2, sticky="w", padx=10, pady=8)
         f.columnconfigure(1, weight=1)
+
+    def selected_school_id(self):
+        name = self.school_var.get()
+        for school_id, profile in LOGIN_PROFILES.items():
+            if profile.name == name:
+                return school_id
+        raise ValueError(f"尚未适配学校：{name}")
+
+    def change_school(self, event=None):
+        if ((self.worker and self.worker.is_alive())
+                or not self._progress_finished or not self.q.empty()):
+            self.school_var.set(login_profile(self._active_school).name)
+            self.append("当前任务尚未收尾，请在完成后切换学校。")
+            return
+        school_id = self.selected_school_id()
+        self._active_school = school_id
+        self.base_var.set(login_profile(school_id).base_url)
+        self.cookie_box.delete("1.0", "end")
+        if self.search_result is not None:
+            session = getattr(getattr(self.search_result, "client", None), "s", None)
+            if session is not None:
+                session.close()
+        self.search_result = None
+        self.nb.select(self.login_tab)
+        for tab in (self.auto_tab, self.search_tab, self.all_tab, self.selected_tab):
+            self.nb.tab(tab, state="normal" if school_id == DEFAULT_SCHOOL_ID else "disabled")
+        note = ("浙江工商大学" if school_id == DEFAULT_SCHOOL_ID else
+                "四川电影电视学院：仅登录骨架。请在 Edge 中用账号密码登录；"
+                "登录后验证标记待确认，课程查询、提交和已选对账尚不可用。")
+        self.school_note.set(note)
+        self.status.set("学校已切换，请重新登录并抓取 Cookie")
 
     def build_auto(self):
         f = self.auto_tab
@@ -2693,9 +2660,12 @@ class App(tk.Tk):
         self.attributes("-fullscreen", not current)
 
     def refresh_selected_courses(self):
+        if self.selected_school_id() != DEFAULT_SCHOOL_ID:
+            return
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         def work():
-            client = make_client(base_url, cookie, self.thread_log)
+            client = make_client(base_url, cookie, self.thread_log, school_id=school_id)
             init_until_open(client, self.thread_log, once=True)
             return ("selected_courses", client.fetch_selected_courses(enrich=True))
         self.run_thread(work, "刷新已选课程中……")
@@ -2733,6 +2703,8 @@ class App(tk.Tk):
         日志里也再没有「已选课程刷新完成」，用户以为这个功能被删了。定时器其实一直在跑，
         只是没 Cookie 时什么都不做、也不吭声。
         """
+        if self.selected_school_id() != DEFAULT_SCHOOL_ID:
+            return "川影仅提供登录骨架，尚不支持已选对账"
         if self.auto_refresh_var is None or not self.auto_refresh_var.get():
             return "开关已关"
         if not self.cookie_text():
@@ -2866,7 +2838,10 @@ class App(tk.Tk):
     def cookie_text(self):
         return self.cookie_box.get("1.0", "end").strip()
 
-    def run_thread(self, fn, status="运行中……"):
+    def run_thread(self, fn, status="运行中……", *, login_task=False):
+        if self.selected_school_id() != DEFAULT_SCHOOL_ID and not login_task:
+            self.append("川影仅提供登录骨架，业务操作尚未验证。")
+            return
         if self.worker and self.worker.is_alive():
             messagebox.showinfo("正在运行", "当前任务还没结束。")
             return
@@ -2909,6 +2884,8 @@ class App(tk.Tk):
             self.append(f"读取软件设置失败：{type(e).__name__}: {e}")
 
     def save_runtime_settings(self):
+        if self.selected_school_id() != DEFAULT_SCHOOL_ID:
+            return
         try:
             data = {}
             if SETTINGS_FILE.exists():
@@ -2963,25 +2940,28 @@ class App(tk.Tk):
 
     def open_browser(self):
         try:
-            launch_login_browser(self.base_var.get(), self.append)
+            launch_login_browser(self.base_var.get(), self.append, school_id=self.selected_school_id())
         except Exception as e:
             messagebox.showerror("错误", str(e))
 
     def close_browser(self):
         try:
-            close_login_browser(self.append)
+            close_login_browser(self.append, school_id=self.selected_school_id())
         except Exception as e:
             messagebox.showerror("关闭失败", str(e))
 
     def capture_cookie(self):
-        self.run_thread(lambda: ("cookie", capture_cookie_from_edge(self.thread_log)), "抓取 Cookie 中……")
+        school_id = self.selected_school_id()
+        self.run_thread(lambda: ("cookie", capture_cookie_from_edge(self.thread_log, school_id=school_id)),
+                        "抓取 Cookie 中……", login_task=True)
 
     def verify_cookie(self):
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         def work():
-            status = verify_cookie_full(base_url, cookie, self.thread_log)
+            status = verify_cookie_full(base_url, cookie, self.thread_log, school_id=school_id)
             return ("status", status)
-        self.run_thread(work, "验证 Cookie 中……")
+        self.run_thread(work, "验证 Cookie 中……", login_task=True)
 
     def copy_cookie(self):
         cookie = self.cookie_text()
@@ -3312,9 +3292,10 @@ class App(tk.Tk):
     def refresh_live_counts(self):
         """向教务实时查一遍每条预设的教学班/人数，并把结果写进详情表。"""
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         raw_presets = [canonical_preset(raw) for raw in self.presets()]
         def work():
-            client = make_client(base_url, cookie, self.thread_log)
+            client = make_client(base_url, cookie, self.thread_log, school_id=school_id)
             result = {}
             for raw in raw_presets:
                 keyword, category = parse_preset(raw)
@@ -3373,6 +3354,7 @@ class App(tk.Tk):
         self.stop_event.clear()
         start_text = self.start_time_var.get().strip()
         base_url, cookie, selector = self.base_var.get(), self.cookie_text(), self.selector_var.get()
+        school_id = self.selected_school_id()
         retry, watch_full = bool(self.retry_var.get()), bool(self.watch_full_var.get())
         parallel, auto_after_init = bool(self.parallel_var.get()), bool(self.auto_after_init_var.get())
         # 门数一多，串行的每一轮大部分时间都花在"确认那些课还是满的"：
@@ -3398,7 +3380,7 @@ class App(tk.Tk):
                               | {str(record.get("course_code") or "").strip()
                                  for record in self.state_store.selected()
                                  if str(record.get("course_code") or "").strip()})
-        self.run_thread(lambda: ("done", timed_monitor_rush(start_text, base_url, cookie, presets, selector, interval, max_success, max_rounds, retry, watch_full, parallel, auto_after_init, self.stop_event, self.thread_log, on_success=self.on_course_success, initial_category_success=initial, focus_count=focus_count, full_wait=full_wait, done_courses=done_courses)), "定时等待/监控抢课中……")
+        self.run_thread(lambda: ("done", timed_monitor_rush(start_text, base_url, cookie, presets, selector, interval, max_success, max_rounds, retry, watch_full, parallel, auto_after_init, self.stop_event, self.thread_log, on_success=self.on_course_success, initial_category_success=initial, focus_count=focus_count, full_wait=full_wait, done_courses=done_courses, school_id=school_id)), "定时等待/监控抢课中……")
 
     def stop_monitor(self):
         self.stop_event.set()
@@ -3410,6 +3392,7 @@ class App(tk.Tk):
         # Tk 控件只能在主线程读：base_url / Cookie 先取出来，工作线程里只用这两个变量
         # （在工作线程里调 self.base_var.get() 会抛 "main thread is not in main loop"）。
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         self.save_search_settings()
         filters = json.loads(json.dumps(self.search_filters))
         refresh_availability = bool(getattr(self, "_refresh_availability_next", False))
@@ -3419,7 +3402,7 @@ class App(tk.Tk):
             source = "本地缓存"
             if refresh_availability:
                 try:
-                    rows = pull_all_courses(base_url, cookie, self.thread_log)
+                    rows = pull_all_courses(base_url, cookie, self.thread_log, school_id=school_id)
                     if rows:
                         source = "在线刷新"
                         self.save_course_catalog(rows)
@@ -3575,6 +3558,7 @@ class App(tk.Tk):
         # base_url / Cookie 必须在主线程取好；工作线程里读 Tk 控件会抛
         # "main thread is not in main loop"（旧版这里就是这么挂的）。
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         off_campus = [item[3] for item in targets
                       if is_off_campus(row_campus(item[1] if item[1] is not None
                                                   else {"teaching_class": getattr(item[2], "jxbmc", ""),
@@ -3588,7 +3572,7 @@ class App(tk.Tk):
             def get_client():
                 """本地行要先去教务查一次教学班；整批共用一个连接，只登录一次。"""
                 if shared["client"] is None:
-                    shared["client"] = make_client(base_url, cookie, self.thread_log)
+                    shared["client"] = make_client(base_url, cookie, self.thread_log, school_id=school_id)
                     init_until_open(shared["client"], self.thread_log, once=True)
                 return shared["client"]
 
@@ -3680,8 +3664,9 @@ class App(tk.Tk):
 
     def pull_all_courses_ui(self):
         base_url, cookie = self.base_var.get(), self.cookie_text()
+        school_id = self.selected_school_id()
         def work():
-            rows = pull_all_courses(base_url, cookie, self.thread_log)
+            rows = pull_all_courses(base_url, cookie, self.thread_log, school_id=school_id)
             return ("all_courses", rows)
         self.run_thread(work, "拉取全部课程中……")
 

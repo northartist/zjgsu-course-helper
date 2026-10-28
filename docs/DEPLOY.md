@@ -128,6 +128,8 @@ pyinstaller --noconfirm --clean --onedir --windowed --name "工商大学选课�
 | `zjgsu_launcher.py` | 主程序（GUI + 抢课循环） |
 | `zjgsu_api.py` | 教务接口层（含 Cookie 抓取） |
 | `school_adapter.py` | 学校接口契约、共享课程模型与工厂（运行时必需，便携部署需一同复制） |
+| `login_session.py` | 按学校隔离的登录会话、Cookie 抓取和验证（运行时必需） |
+| `sfc_api.py` | 川影登录骨架（运行时必需，尚无课程业务） |
 | `course_state.py` | 状态与规则（去重、课表、进度） |
 | `course_preset_details.json` | 教学班详情预设表（程序运行时读取） |
 | `backfill_catalog.py` | 一次性维护脚本（不需要日常运行） |
@@ -145,6 +147,7 @@ pyinstaller --noconfirm --clean --onedir --windowed --name "工商大学选课�
 | `course_catalog.json` | 「拉取全部课程」的本地缓存（离线搜索用） |
 | `all_courses_detailed.json` | 拉取时存下的教学班明细 |
 | `logs\app.log` | 运行日志（超过约 1 MB 自动轮转，保留最近的） |
+| `edge_profile_sfc\` | 川影独立 Edge 目录，调试端口 9228；仅用于登录骨架 |
 | `edge_profile_zjgsu\` | **独立 Edge 的用户数据目录**（只给本程序用；想彻底清干净删这个目录） |
 
 > 升级程序（覆盖程序目录）不会动这些文件；想彻底重置就删整个数据目录。
